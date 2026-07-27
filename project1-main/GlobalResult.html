@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global Academy of Technology Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f6fb;
+            color: #1f2937;
+        }
+
+        .page-wrapper {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+            margin-bottom: 1rem;
+        }
+
+        .brand-panel {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .brand-logo {
+            width: 100px;
+            height: auto;
+            border-radius: 18px;
+            object-fit: contain;
+            box-shadow: 0 15px 28px rgba(15, 23, 42, 0.08);
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #4b5563;
+        }
+
+        .brand-name {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            line-height: 1.05;
+            color: #111827;
+        }
+
+        .powered-by {
+            text-align: right;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #6b7280;
+            letter-spacing: 0.08em;
+        }
+
+        .powered-by span {
+            color: #dc2626;
+        }
+
+        .hero-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.5rem 1.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            box-shadow: 0 16px 35px rgba(15, 23, 42, 0.06);
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #111827;
+            margin: 0;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.95rem 1.5rem;
+            background: #1d4ed8;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            box-shadow: 0 14px 30px rgba(29, 78, 216, 0.2);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .hero-cta:hover {
+            background: #1e40af;
+            transform: translateY(-1px);
+        }
+
+        .form-card {
+            background: linear-gradient(180deg, #1e40af 0%, #2563eb 100%);
+            border-radius: 24px;
+            padding: 2rem;
+            color: #ffffff;
+            box-shadow: 0 22px 45px rgba(15, 23, 42, 0.18);
+        }
+
+        .form-title {
+            margin: 0 0 1rem;
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .input-group {
+            display: grid;
+            gap: 0.75rem;
+            margin-bottom: 1.35rem;
+        }
+
+        .field-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        .form-field {
+            width: 100%;
+            border: none;
+            border-radius: 16px;
+            padding: 1rem 1.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1f2937;
+            background: #f8fafc;
+            outline: none;
+        }
+
+        .form-field::placeholder {
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .captcha-row {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .captcha-block {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .captcha-value {
+            min-width: 210px;
+            padding: 1rem 1.2rem;
+            background: #f8fafc;
+            color: #1f2937;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.18);
+        }
+
+        .refresh-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            background: #e2e8f0;
+            color: #1d4ed8;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .refresh-btn:hover {
+            background: #c7d2fe;
+            transform: translateY(-1px);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 1.15rem;
+            border-radius: 16px;
+            border: none;
+            background: #f8fafc;
+            color: #1e3a8a;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 0.04em;
+            box-shadow: 0 18px 32px rgba(15, 23, 42, 0.12);
+            transition: transform 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .message {
+            margin-top: 1rem;
+            text-align: center;
+            color: #fee2e2;
+            font-weight: 600;
+            min-height: 1.2rem;
+        }
+
+        .result-box {
+            margin-top: 1.75rem;
+            display: none;
+            text-align: center;
+        }
+
+        .result-box h3 {
+            margin: 0 0 1rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #f8fafc;
+        }
+
+        .result-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 420px;
+        }
+
+        .result-list li {
+            margin-bottom: 0.85rem;
+        }
+
+        .result-list a {
+            display: block;
+            background: rgba(255, 255, 255, 0.16);
+            color: #ffffff;
+            padding: 0.95rem 1rem;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: background 0.2s ease;
+            font-weight: 700;
+        }
+
+        .result-list a:hover {
+            background: rgba(255, 255, 255, 0.28);
+        }
+
+        .back-btn {
+            margin-top: 1rem;
+            padding: 0.95rem 1.4rem;
+            border-radius: 16px;
+            border: none;
+            background: #f8fafc;
+            color: #1e3a8a;
+            font-weight: 700;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        @media (max-width: 780px) {
+            .page-header,
+            .hero-card {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: left;
+            }
+
+            .powered-by {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <div class="brand-panel">
+                <img src="global-tech-logo.jpg" alt="Global Academy of Technology Logo" class="brand-logo">
+                <div class="brand-text">
+                    <span class="brand-title">Global Academy of</span>
+                    <span class="brand-name">Technology</span>
+                </div>
+            </div>
+            <div class="powered-by">powered by <span>contineo</span></div>
+        </header>
+
+        <section class="hero-card">
+            <h1 class="hero-title">June 2026 - Provisional Results</h1>
+            <a class="hero-cta" href="#resultForm">CLICK HERE TO LOGIN</a>
+        </section>
+
+        <section class="form-card" id="resultFormSection">
+            <h2 class="form-title">Enter credentials to view your PDF result</h2>
+            <form id="resultForm" autocomplete="off">
+                <div class="input-group">
+                    <label class="field-label" for="regno">Enter Student Registration No (SRN)</label>
+                    <input class="form-field" type="text" id="regno" name="regno" required pattern="[A-Za-z0-9]+" maxlength="15" placeholder="Enter Student Registration No" title="Registration number must be letters and numbers only">
+                </div>
+                <div class="input-group">
+                    <label class="field-label" for="captcha">Security Code</label>
+                    <input class="form-field" type="text" id="captcha" name="captcha" required pattern="[A-Za-z0-9]+" maxlength="6" placeholder="Enter Security Code" title="Captcha must be letters and numbers only">
+                </div>
+                <div class="captcha-row">
+                    <div class="captcha-block">
+                        <span class="captcha-value" id="captchaDisplay"></span>
+                        <button type="button" class="refresh-btn" id="refreshCaptcha" title="Refresh Captcha">&#x21bb;</button>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Result</button>
+                </div>
+            </form>
+
+            <div class="message" id="message"></div>
+
+            <div class="result-box" id="resultLinks">
+                <h3>PDF results for <span id="selectedRegno"></span></h3>
+                <ul class="result-list" id="resultList"></ul>
+                <button class="back-btn" id="backBtn">Search again</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        let mapping = {};
+        let currentCaptcha = "";
+
+        function generateCaptcha(length = 6) {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let captcha = '';
+            for (let i = 0; i < length; i++) {
+                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return captcha;
+        }
+
+        function setCaptcha() {
+            currentCaptcha = generateCaptcha();
+            document.getElementById('captchaDisplay').textContent = currentCaptcha;
+            document.getElementById('captcha').value = '';
+        }
+
+        document.getElementById('refreshCaptcha').addEventListener('click', setCaptcha);
+        setCaptcha();
+
+        fetch('mapping.json')
+            .then(response => response.json())
+            .then(data => {
+                mapping = data;
+            })
+            .catch(() => {
+                document.getElementById('message').innerText = 'Error loading mapping file.';
+            });
+
+        function showResults(pdfFiles, regno) {
+            const resultsContainer = document.getElementById('resultLinks');
+            const list = document.getElementById('resultList');
+            const selectedRegno = document.getElementById('selectedRegno');
+            selectedRegno.textContent = regno;
+            list.innerHTML = '';
+
+            pdfFiles.forEach(file => {
+                const li = document.createElement('li');
+                const encodedFile = encodeURIComponent(file);
+                const link = document.createElement('a');
+                link.href = `pdfview.html?file=${encodedFile}`;
+                link.textContent = `View ${file}`;
+                link.target = '_blank';
+                li.appendChild(link);
+                list.appendChild(li);
+            });
+
+            resultsContainer.style.display = 'block';
+            document.getElementById('resultForm').style.display = 'none';
+            document.getElementById('message').innerText = '';
+        }
+
+        function resetForm() {
+            document.getElementById('resultForm').reset();
+            setCaptcha();
+            document.getElementById('message').innerText = '';
+            document.getElementById('resultLinks').style.display = 'none';
+            document.getElementById('resultForm').style.display = 'block';
+        }
+
+        document.getElementById('resultForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const regno = document.getElementById('regno').value.trim();
+            const captchaInput = document.getElementById('captcha').value.trim();
+            const alphaNumRegex = /^[A-Za-z0-9]+$/;
+
+            if (!alphaNumRegex.test(regno) || !alphaNumRegex.test(captchaInput)) {
+                document.getElementById('message').innerText = 'Both fields must be letters and numbers only.';
+                return;
+            }
+
+            if (captchaInput !== currentCaptcha) {
+                document.getElementById('message').innerText = 'Incorrect captcha. Please try again.';
+                setCaptcha();
+                return;
+            }
+
+            if (mapping.hasOwnProperty(regno)) {
+                let pdfFiles = mapping[regno];
+                if (typeof pdfFiles === 'string') {
+                    pdfFiles = [pdfFiles];
+                }
+
+                if (Array.isArray(pdfFiles) && pdfFiles.length > 0) {
+                    showResults(pdfFiles, regno);
+                } else {
+                    document.getElementById('message').innerText = 'Error: No PDF files registered for this registration number.';
+                }
+            } else {
+                document.getElementById('message').innerText = 'Error: PDF file does not exist for this registration number.';
+            }
+        });
+
+        document.getElementById('backBtn').addEventListener('click', resetForm);
+    </script>
+</body>
+</html>
